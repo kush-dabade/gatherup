@@ -113,6 +113,7 @@ export async function getAllEvents({ query, limit = 6, page, category }: GetAllE
 
     const events = await populateEvent(eventsQuery)
     const eventsCount = await Event.countDocuments(conditions)
+    console.log("✅ SERVER_URL:", process.env.NEXT_PUBLIC_SERVER_URL);
 
     return {
       data: JSON.parse(JSON.stringify(events)),
